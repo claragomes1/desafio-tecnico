@@ -1,0 +1,65 @@
+{
+    "profiles": [
+        {
+            "id": 1,
+            "name": "Adriana Mantana",
+            "picture": "assets/profile1.jpg",
+            "profession": "Psicóloga",
+            "price": "R$160",
+            "time": "50 minutes",
+            "ratings": "assets/estrela.png",
+            "description": "Olá, estou aqui para te ajudar a lidar com a ansiedade, TDAH, desânimo, crises de pânico, baixa autoestima, autoconhecimento e ter uma vida mais leve. Gostaria de apoio em alguma dessas questões? Então vamos conversar. Sou especializada em Terapia Cognitivo Comportamental (TCC)."
+        },
+        {
+            "id": 2,
+            "name": "Lucas Rodrigues",
+            "picture": "assets/profile2.jpg",
+            "profession": "Psicólogo",
+            "price": "R$120",
+            "time": "50 minutes",
+            "ratings": "assets/estrela.png",
+            "description": "Tem se sentido irritado sem motivo aparente? Tem pensamentos insistentes de desmotivação e constantes alterações de humor? Dificuldade em dormir? Eu posso te ajudar. Me chama aqui para conversarmos!"
+        },
+        {
+            "id": 3,
+            "name": "Igor Maggioli",
+            "picture": "assets/profile3.jpg",
+            "profession": "Psicólogo",
+            "price": "R$260",
+            "time": "50 minutes",
+            "ratings": "assets/estrela.png",
+            "description": "Olá! Sou um psicólogo humanista apaixonado por construir histórias de transformação. Pós-graduado em psicopatologias e com experiência em questões voltadas a sexualidade e identidade de gênero. Se você chegou até aqui é hora de parar de sofrer e acolher suas dores. Vamos nessa juntos?"
+        },
+        {
+            "id": 4,
+            "name": "Simone Ferreira",
+            "picture": "assets/profile4.jpg",
+            "profession": "Psicóloga",
+            "price": "R$160",
+            "time": "50 minutes",
+            "ratings": "assets/estrela.png",
+            "description": "Olá sou Simone, estou aqui para te ajudar a desenvolver o seu autoconhecimento e elevar sua qualidade de vida nas variadas áreas como: relacionamento afetivo, carreira e propósito pessoal. Utilizo ferramentas que auxiliam na melhoria breve do seu estado emocional. Vamos juntos nesta jornada?"
+        },
+        {
+            "id": 5,
+            "name": "Barbara Rocha",
+            "picture": "assets/profile5.jpg",
+            "profession": "Psicóloga",
+            "price": "R$160",
+            "time": "50 minutes",
+            "ratings": "assets/estrela.png",
+            "description": "Seja bem-vindo(a)! Estou disponível e ansiosa para nos encontrarmos e entrarmos nesse ritual, onde nos comprometemos semanalmente a ter uma conversa bastante profunda sobre a vida"
+        },
+        {
+            "id": 6,
+            "name": "João Silva",
+            "picture": "assets/profile6.jpg",
+            "profession": "Coach",
+            "price": "R$99",
+            "time": "50 minutes",
+            "ratings": "assets/estrela.png",
+            "description": "Eu sou Coach há quase 10 anos e a minha abordagem é embasada na Psicologia Positiva. Tenho experiência com, problemas Financeiro, Relacionamento Com dinheiro, Investimentos, Atendo você que busca se Conhecer melhor e ter uma vida com mais bem-estar. Vem comigo nessa jornada, Fazer 10 ANOS EM 1."
+        }
+    ]
+  }
+ 
