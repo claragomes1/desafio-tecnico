@@ -1,0 +1,15 @@
+.profile-item {
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.profile-list {
+    margin-top: 32px;
+}
+
+@media screen and (max-width: 950px) {
+    .profile-list {
+        margin: 0;
+        padding: 0;
+    }
+}
