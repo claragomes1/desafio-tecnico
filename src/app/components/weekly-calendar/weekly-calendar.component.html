@@ -1,0 +1,40 @@
+<div class="weekly-calendar-component">
+  <h2 class="title-weekly-calendar">AGENDE SUA CONSULTA</h2>
+  <div class="weekly-calendar">
+    <div class="header-weekly-calendar">    
+      <div class="header-weekly-calendar-date" *ngFor="let day of getDatesForWeek(currentDate)">
+        <h3 class="text-day">{{ day.split('\n')[0] }}</h3>
+        <span class="text-date">{{ day.split('\n')[1] }}</span>
+      </div>
+    </div>  
+    
+    <div class="weekly-calendar-days">      
+      <div class="weekly-calendar-day" *ngFor="let day of weekDays">
+        <div class="weekly-calendar-slots">
+          <div
+            class="weekly-calendar-slot"
+            *ngFor="let time of timeSlots"
+            [class.unavailable]="!isSlotAvailable(day, time)"
+            [class.clicked]="isSelected(day, time)"
+            (click)="handleSlotClick(day, time)"
+          >
+            {{ time }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="weekly-calendar-buttons">
+    <div *ngIf="selectedSlot.time" class="weekly-calendar-buttons-selected-cancel-slot">
+      <button class="weekly-calendar-button-cancel-slot" (click)="cancelBookSlot()">Cancelar</button>
+      <button class="weekly-calendar-button-selected-slot" (click)="bookSelectedSlot()">Agendar</button>     
+    </div>
+    <div *ngIf="!selectedSlot.time" class="weekly-calendar-buttons-next-back">  
+      <button class="weekly-calendar-button-back" (click)="goBack()" [disabled]="isCurrentWeek()">Voltar</button>
+      <button class="weekly-calendar-button-next" (click)="goNext()">Próxima</button>
+    </div>
+  </div>
+</div>
+
+
