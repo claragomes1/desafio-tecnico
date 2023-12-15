@@ -1,0 +1,23 @@
+<div class="profile-details-container">
+    <div class="profile-details-content">
+        <div class="profile-left-panel">
+            <div class="profile-picture-section">
+                <img [src]="profile.picture" alt="Picture" class="profile-picture">
+                <div class="profile-info">
+                    <h1 class="profile-name">{{ profile.name }}</h1>
+                    <h2 class="profile-profession">{{ profile.profession }}</h2>      
+                    <img [src]="profile.ratings" alt="Ratings" class="profile-ratings"> 
+                    <h2 class="profile-price">{{ profile.price }} / {{ profile.time }}</h2>
+                </div>
+            </div>
+            <div class="profile-description-section">
+                <p class="profile-description">{{ profile.description }}</p>
+            </div>
+        </div>
+        <div class="profile-right-panel">
+            <app-weekly-calendar [profileId]="profile.id"></app-weekly-calendar>
+        </div>            
+    </div>
+</div>
+
+  
