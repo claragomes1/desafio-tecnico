@@ -38,7 +38,7 @@ describe('ProfileListComponent', () => {
   });
 
   it('should fetch profiles on init', () => {
-    const profiles = [{ id: 1, name: 'Name 1' }, { id: 2, name: 'Name 2 2' }];
+    const profiles = [{ id: 1, name: 'Name 1' }, { id: 2, name: 'Name 2' }];
     spyOn(profileService, 'getProfiles').and.returnValue(of(profiles));
 
     fixture.detectChanges();

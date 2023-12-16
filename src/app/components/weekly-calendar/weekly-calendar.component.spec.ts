@@ -77,13 +77,13 @@ describe('WeeklyCalendarComponent', () => {
 
   it('should cancel booking slot', () => {
     component.selectedSlot = { day: 'Dom', time: '08:00' };
-    component.cancelBookSlot();
+    component.cleanSelectedSlot();
     expect(component.selectedSlot).toEqual({ day: '', time: '' });
   });
 
   it('should check if a slot is selected', () => {
     component.selectedSlot = { day: 'Dom', time: '08:00' };
-    const isSelected = component.isSelected('Dom', '08:00');
+    const isSelected = component.isSelectedSlot('Dom', '08:00');
     expect(isSelected).toBe(true);
   });
 
@@ -94,13 +94,13 @@ describe('WeeklyCalendarComponent', () => {
 
   it('should move to the previous week', () => {
     component.currentWeekStartDate = new Date('2023-12-01');
-    component.goBack();
+    component.goBackWeek();
     expect(component.currentWeekStartDate).toEqual(new Date('2023-11-24'));
   });
 
   it('should move to the next week', () => {
     component.currentWeekStartDate = new Date('2023-12-01');
-    component.goNext();
+    component.goNextWeek();
     expect(component.currentWeekStartDate).toEqual(new Date('2023-12-08'));
   });
 

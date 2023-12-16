@@ -90,8 +90,9 @@ export class WeeklyCalendarComponent {
   bookSelectedSlot(): void {
     const { day, time } = this.selectedSlot;
     if (day && time) {
-      this.addDateToProfile(day, time);
-      this.selectedSlot = { day: '', time: '' };
+      const newDate = this.formatDate(day, time);
+      this.updateScheduleWithDate(newDate);
+      this.cleanSelectedSlot();
 
       const config: MatSnackBarConfig = {
         duration: 3000,
@@ -100,28 +101,21 @@ export class WeeklyCalendarComponent {
       this.snackBar.open('Horário agendado! :)', 'Fechar', config);      
     }
   }
-
-  addDateToProfile(day: string, time: string): void {
+  
+  formatDate(day: string, time: string): { date: string } {
     const slotDate = this.getSlotDate(day, time);
     const date = slotDate.toISOString();
-    const newDate = { date: date };
+    return { date };
+  }
   
+  updateScheduleWithDate(newDate: { date: string }): void {
     this.scheduleService.getSchedulesByProfileId(this.profileId)
       .subscribe(
         (schedules: any[]) => {
           const schedule = schedules.find(schedule => schedule.profileId === this.profileId);
   
           if (schedule) {
-            schedule.dates.push(newDate);
-            this.scheduleService.updateScheduleForProfile(this.profileId, schedule.dates)
-              .subscribe(
-                (response) => {
-                  this.fetchSchedulesForProfile(this.profileId);
-                },
-                (error) => {
-                  console.error('Erro ao atualizar datas do agendamento:', error);
-                }
-              );
+            this.addDateToScheduleForProfile(schedule, newDate);
           } else {
             console.error('Perfil não encontrado para agendar.');
           }
@@ -131,12 +125,25 @@ export class WeeklyCalendarComponent {
         }
       );
   }
+  
+  addDateToScheduleForProfile(schedule: any, newDate: { date: string }): void {
+    schedule.dates.push(newDate);
+    this.scheduleService.updateScheduleForProfile(this.profileId, schedule.dates)
+      .subscribe(
+        (response) => {
+          this.fetchSchedulesForProfile(this.profileId);
+        },
+        (error) => {
+          console.error('Erro ao atualizar datas do agendamento:', error);
+        }
+      );
+  }
 
-  cancelBookSlot() {
+  cleanSelectedSlot() {
     this.selectedSlot = { day: '', time: '' };
   }
   
-  isSelected(day: string, time: string): boolean {
+  isSelectedSlot(day: string, time: string): boolean {
     return this.selectedSlot.day === day && this.selectedSlot.time === time;
   }
 
@@ -161,14 +168,14 @@ export class WeeklyCalendarComponent {
     return nextSevenDays;
   }
 
-  goBack(): void {
+  goBackWeek(): void {
     const newDate = new Date(this.currentWeekStartDate);
     newDate.setDate(this.currentWeekStartDate.getDate() - 7);
     this.currentWeekStartDate = newDate;
     this.currentDate = new Date(this.currentWeekStartDate);
   }
 
-  goNext(): void {
+  goNextWeek(): void {
     const newDate = new Date(this.currentWeekStartDate);
     newDate.setDate(this.currentWeekStartDate.getDate() + 7);
     this.currentWeekStartDate = newDate;

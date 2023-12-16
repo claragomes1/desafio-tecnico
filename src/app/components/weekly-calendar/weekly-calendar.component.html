@@ -15,7 +15,7 @@
             class="weekly-calendar-slot"
             *ngFor="let time of timeSlots"
             [class.unavailable]="!isSlotAvailable(day, time)"
-            [class.clicked]="isSelected(day, time)"
+            [class.clicked]="isSelectedSlot(day, time)"
             (click)="handleSlotClick(day, time)"
           >
             {{ time }}
@@ -27,12 +27,12 @@
 
   <div class="weekly-calendar-buttons">
     <div *ngIf="selectedSlot.time" class="weekly-calendar-buttons-selected-cancel-slot">
-      <button class="weekly-calendar-button-cancel-slot" (click)="cancelBookSlot()">Cancelar</button>
+      <button class="weekly-calendar-button-cancel-slot" (click)="cleanSelectedSlot()">Cancelar</button>
       <button class="weekly-calendar-button-selected-slot" (click)="bookSelectedSlot()">Agendar</button>     
     </div>
     <div *ngIf="!selectedSlot.time" class="weekly-calendar-buttons-next-back">  
-      <button class="weekly-calendar-button-back" (click)="goBack()" [disabled]="isCurrentWeek()">Voltar</button>
-      <button class="weekly-calendar-button-next" (click)="goNext()">Próxima</button>
+      <button class="weekly-calendar-button-back" (click)="goBackWeek()" [disabled]="isCurrentWeek()">Voltar</button>
+      <button class="weekly-calendar-button-next" (click)="goNextWeek()">Próxima</button>
     </div>
   </div>
 </div>
